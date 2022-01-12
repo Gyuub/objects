@@ -1,5 +1,15 @@
-import domain.*;
+package good;
 
+import good.domain.*;
+
+/**
+ * 절차지향적 프로그래밍 방법에서
+ * 객체지향적 프로그래밍으로 개선
+ *
+ * @author Hman
+ * @version 1.0.0
+ * 작성일 2022-01-11
+ */
 public class Main {
     public static void main(String[] args) {
         Audience 이벤트당첨자 = createAudience(new Invitation());

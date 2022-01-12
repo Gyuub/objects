@@ -1,4 +1,4 @@
-package domain;
+package good.domain;
 
 public class Bag {
     private Invitation invitation;
@@ -8,7 +8,6 @@ public class Bag {
 
     public Bag(long amount){
         this(amount, null);
-        this.amount = amount;
     }
     public Bag(long amount, Invitation invitation){
         this.amount = amount;
