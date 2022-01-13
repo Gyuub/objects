@@ -1,8 +1,8 @@
-package domain.policy;
+package good.domain.policy;
 
-import domain.Money;
-import domain.Screening;
-import domain.condtion.DiscountCondition;
+import good.domain.Money;
+import good.domain.Screening;
+import good.domain.condtion.DiscountCondition;
 
 public class PercentDiscountPolicy extends DefaultDiscountPolicy {
     private double percent;

@@ -1,6 +1,5 @@
-package domain;
+package good.domain;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Screening {

@@ -1,6 +1,6 @@
-package domain.condtion;
+package good.domain.condtion;
 
-import domain.Screening;
+import good.domain.Screening;
 
 import java.time.DayOfWeek;
 import java.time.LocalTime;

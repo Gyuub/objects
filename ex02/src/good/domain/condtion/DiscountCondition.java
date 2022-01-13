@@ -1,6 +1,6 @@
-package domain.condtion;
+package good.domain.condtion;
 
-import domain.Screening;
+import good.domain.Screening;
 
 public interface DiscountCondition  {
     public boolean isSatisfiedBy(Screening screening);

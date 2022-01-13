@@ -1,9 +1,11 @@
-import domain.*;
-import domain.condtion.PeriodCondtion;
-import domain.condtion.SequenceCondition;
-import domain.policy.AmountDiscountPolicy;
-import domain.policy.NoneDiscountPolicy;
-import domain.policy.PercentDiscountPolicy;
+package good;
+
+import good.domain.*;
+import good.domain.condtion.PeriodCondtion;
+import good.domain.condtion.SequenceCondition;
+import good.domain.policy.AmountDiscountPolicy;
+import good.domain.policy.NoneDiscountPolicy;
+import good.domain.policy.PercentDiscountPolicy;
 
 import java.time.*;
 import java.util.Arrays;

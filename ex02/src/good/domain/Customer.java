@@ -1,4 +1,4 @@
-package domain;
+package good.domain;
 
 public class Customer {
     private Money money;

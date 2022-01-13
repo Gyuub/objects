@@ -1,7 +1,7 @@
-package domain.policy;
+package good.domain.policy;
 
-import domain.Money;
-import domain.Screening;
+import good.domain.Money;
+import good.domain.Screening;
 
 public interface DiscountPolicy {
     Money calculateDiscountAmount(Screening screening);

@@ -1,6 +1,6 @@
-package domain.condtion;
+package good.domain.condtion;
 
-import domain.Screening;
+import good.domain.Screening;
 
 public class SequenceCondition implements DiscountCondition{
     private int sequence;
