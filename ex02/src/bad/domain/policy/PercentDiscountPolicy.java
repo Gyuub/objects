@@ -2,10 +2,21 @@ package bad.domain.policy;
 
 import bad.domain.Money;
 import bad.domain.Movie;
+import bad.domain.Screening;
+import bad.domain.codition.DiscountCondition;
 
-public class PercentDiscountPolicy implements DiscountPolicy{
+import java.util.List;
+
+public class PercentDiscountPolicy extends DefaultDiscountPolicy{
+    private double discountPercent;
+
+    public PercentDiscountPolicy(double discountPercent, DiscountCondition ...discountConditions) {
+        super(discountConditions);
+        this.discountPercent = discountPercent;
+    }
+
     @Override
-    public Money calculateDiscountedFee(Movie movie) {
-        return movie.getFee().minus(movie.getFee().times(movie.getDiscountPercent()));
+    protected Money getDiscountedFee(Screening screening) {
+        return screening.getMovieFee().minus(screening.getMovieFee().times((discountPercent)));
     }
 }

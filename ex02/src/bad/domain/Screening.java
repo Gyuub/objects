@@ -17,6 +17,10 @@ public class Screening {
         return movie.calculateDiscountedFee(this).times(audienceCount);
     }
 
+    public Money getMovieFee() {
+        return movie.getFee();
+    }
+
     public int getSequence() {
         return sequence;
     }
