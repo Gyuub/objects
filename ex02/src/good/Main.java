@@ -11,6 +11,13 @@ import java.time.*;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * 영화 예매 시스템, 객체지향적 프로그래밍
+ *
+ * @author Hman
+ * @version 1.0.0
+ * 작성일 2022-01-11
+ */
 public class Main {
     public static void main(String[] args) {
         Customer 굽인이 = new Customer(Money.wons(30000));
