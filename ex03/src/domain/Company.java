@@ -1,13 +1,23 @@
 package domain;
 
-public class Company {
-    Bookkeeper bookkeeper;
+import domain.employee.Employee;
+import domain.employee.Role;
+import domain.pay.Bookkeeper;
 
-    public Company(Bookkeeper bookkeeper) {
+public class Company {
+    private String name;
+    private Bookkeeper bookkeeper;
+
+    public Company(String name, Bookkeeper bookkeeper) {
+        this.name = name;
         this.bookkeeper = bookkeeper;
     }
 
-    public double requestStipend(Employee employee){
-        return bookkeeper.calculateStipend(employee);
+    public double informAllPay(Role role){
+        return bookkeeper.getAllPay(role);
+    }
+
+    public double informPay(Employee employee){
+        return bookkeeper.getPay(employee);
     }
 }
