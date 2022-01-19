@@ -19,7 +19,7 @@ public class PermanentCalculator implements Calculator{
     public double calculateAllPay(EmployeeStorage employeeStorage) {
         return employeeStorage.getEmployees().
                 stream().
-                filter(employee ->employee.getRole() == Role.PERMANENT).
+                filter(employee ->isSatisfiedBy(employee.getRole())).
                 mapToDouble(o -> calculatePay(o)).
                 sum();
     }
