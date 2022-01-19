@@ -20,7 +20,7 @@ public class TemporaryCalculator implements Calculator{
     public double calculateAllPay(EmployeeStorage employeeStorage) {
         return employeeStorage.getEmployees().
                 stream().
-                filter(employee ->employee.getRole() == Role.TEMPORARY).
+                filter(employee ->isSatisfiedBy(employee.getRole())).
                 mapToDouble(o -> calculatePay(o)).
                 sum();
     }
