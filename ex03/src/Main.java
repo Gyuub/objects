@@ -1,8 +1,10 @@
 import domain.Company;
+import domain.calculator.PermanentCalculator;
+import domain.calculator.TemporaryCalculator;
+import domain.employee.Bookkeeper;
 import domain.employee.Employee;
 import domain.employee.EmployeeStorage;
 import domain.employee.Role;
-import domain.pay.Bookkeeper;
 
 /**
  * 급여 관리 시스템
@@ -23,8 +25,12 @@ public class Main {
         Employee employee4 = new Employee("계약직2", 4000, 0.3, Role.TEMPORARY);
         EmployeeStorage employeeStorage = new EmployeeStorage(employee1, employee2, employee3, employee4);
 
+        //계산기
+        PermanentCalculator calculator1 = new PermanentCalculator();
+        TemporaryCalculator calculator2 = new TemporaryCalculator();
+
         //경리직원
-        Bookkeeper bookkeeper = new Bookkeeper(employeeStorage);
+        Bookkeeper bookkeeper = new Bookkeeper(employeeStorage, calculator1, calculator2);
 
         //회사
         Company company = new Company("Gyub",bookkeeper);

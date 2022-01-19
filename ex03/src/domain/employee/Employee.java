@@ -17,9 +17,6 @@ public class Employee {
         this.role = role;
     }
 
-    public String getName() {
-        return name;
-    }
 
     public int getPay() {
         return pay;

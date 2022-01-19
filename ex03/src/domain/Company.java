@@ -1,8 +1,8 @@
 package domain;
 
+import domain.employee.Bookkeeper;
 import domain.employee.Employee;
 import domain.employee.Role;
-import domain.pay.Bookkeeper;
 
 public class Company {
     private String name;
