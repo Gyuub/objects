@@ -1,7 +1,11 @@
-import domain.Calculator;
+import domain.Money;
 import domain.Call;
 import domain.Phone;
+import domain.calculator.NightlyCalculator;
+import domain.calculator.OverlappedCalculator;
+import domain.calculator.RegularCalculator;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 
 /**
@@ -21,14 +25,27 @@ import java.time.LocalDateTime;
 public class Main {
     public static void main(String[] args) {
 
-        Calculator calculator = new Calculator();
-        Call call = new Call(
+
+        RegularCalculator calculator1 = new RegularCalculator(Duration.ofSeconds(10), Money.wons(10));
+        NightlyCalculator calculator2 = new NightlyCalculator(Duration.ofSeconds(10), Money.wons(5));
+
+        OverlappedCalculator calculator = new OverlappedCalculator(calculator1, calculator2);
+
+        Call call1 = new Call(
                 LocalDateTime.of(2022,1,20,13,0),
                 LocalDateTime.of(2022,1,20,13,5)
                 );
-        Phone phone = new Phone(calculator);
-        phone.call(call);
+        Call call2 = new Call(
+                LocalDateTime.of(2022,1,20,22,0),
+                LocalDateTime.of(2022,1,20,22,10)
+        );
 
-        System.out.println("phone.getPhoneFee() = " + phone.getPhoneFee());
+
+        Phone phone = new Phone(calculator);
+        phone.call(call1);
+        phone.call(call2);
+
+
+        System.out.println("phone.getPhoneFee() = " + phone.getPhoneFee().amount);
     }
 }

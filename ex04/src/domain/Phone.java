@@ -1,20 +1,15 @@
 package domain;
 
-import java.time.LocalDateTime;
+import domain.calculator.DefaultCalculator;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Phone {
-    private Calculator calculator;
+    private DefaultCalculator calculator;
     private List<Call> calls = new ArrayList<>();
 
-    public Phone(Calculator calculator, Call ...call) {
-        this.calculator = calculator;
-        this.calls = this.calls = Arrays.asList(call);
-    }
-
-    public Phone(Calculator calculator) {
+    public Phone(DefaultCalculator calculator) {
         this.calculator = calculator;
     }
 
@@ -26,8 +21,8 @@ public class Phone {
         calls.add(call);
     }
 
-    public double getPhoneFee(){
-        return calculator.getFee(this);
+    public Money getPhoneFee(){
+        return calculator.getCalculateFee(this);
     }
 
 }
