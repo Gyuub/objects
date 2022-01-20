@@ -2,7 +2,6 @@ import domain.Money;
 import domain.Call;
 import domain.Phone;
 import domain.calculator.NightlyCalculator;
-import domain.calculator.OverlappedCalculator;
 import domain.calculator.RegularCalculator;
 
 import java.time.Duration;
@@ -26,10 +25,8 @@ public class Main {
     public static void main(String[] args) {
 
 
-        RegularCalculator calculator1 = new RegularCalculator(Duration.ofSeconds(10), Money.wons(10));
-        NightlyCalculator calculator2 = new NightlyCalculator(Duration.ofSeconds(10), Money.wons(5));
-
-        OverlappedCalculator calculator = new OverlappedCalculator(calculator1, calculator2);
+        RegularCalculator calculator1 = new RegularCalculator(Money.wons(10), Duration.ofSeconds(10));
+        NightlyCalculator calculator2 = new NightlyCalculator(Money.wons(10), Money.wons(5), Duration.ofSeconds(10));
 
         Call call1 = new Call(
                 LocalDateTime.of(2022,1,20,13,0),
@@ -41,7 +38,7 @@ public class Main {
         );
 
 
-        Phone phone = new Phone(calculator);
+        Phone phone = new Phone(calculator2);
         phone.call(call1);
         phone.call(call2);
 

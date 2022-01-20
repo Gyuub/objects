@@ -7,16 +7,6 @@ import domain.Phone;
 import java.time.Duration;
 
 public abstract class DefaultCalculator{
-    protected Duration secound;
-    protected Money amount;
-
-    public DefaultCalculator() {
-    }
-
-    public DefaultCalculator(Duration secound, Money amount) {
-        this.secound = secound;
-        this.amount = amount;
-    }
 
     public Money getCalculateFee(Phone phone){
         Money result = Money.ZERO;
@@ -26,7 +16,6 @@ public abstract class DefaultCalculator{
         return result;
     }
 
-    protected abstract boolean isSatisfiedBy(Call call);
     protected abstract Money calculate(Call call);
 
 

@@ -6,13 +6,11 @@ import domain.Money;
 import java.time.Duration;
 
 public class RegularCalculator extends DefaultCalculator {
-    public RegularCalculator(Duration secound, Money amount) {
-        super(secound, amount);
-    }
-
-    @Override
-    protected boolean isSatisfiedBy(Call call) {
-        return true;
+    private Money amount;
+    private Duration secound;
+    public RegularCalculator(Money amount, Duration secound) {
+        this.secound = secound;
+        this.amount = amount;
     }
 
     @Override
