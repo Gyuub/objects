@@ -1,17 +1,26 @@
 package domain;
 
+import domain.policy.FeePolicy;
+import domain.policy.addition.TaxablePolicy;
 import domain.policy.basic.BascicPolicy;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Phone {
-    private BascicPolicy calculator;
+    private FeePolicy policy;
     private List<Call> calls = new ArrayList<>();
 
-    public Phone(BascicPolicy calculator) {
-        this.calculator = calculator;
+    public Phone(FeePolicy policy) {
+        this.policy = policy;
     }
+
+    public Phone(FeePolicy policy, Call  ...call) {
+        this.policy = policy;
+        this.calls = Arrays.asList(call);
+    }
+
 
     public List<Call> getCalls() {
         return calls;
@@ -22,7 +31,7 @@ public class Phone {
     }
 
     public Money getPhoneFee(){
-        return calculator.getCalculateFee(this);
+        return policy.getCalculateFee(this);
     }
 
 }
