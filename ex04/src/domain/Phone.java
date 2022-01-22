@@ -1,15 +1,15 @@
 package domain;
 
-import domain.calculator.DefaultCalculator;
+import domain.policy.basic.BascicPolicy;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Phone {
-    private DefaultCalculator calculator;
+    private BascicPolicy calculator;
     private List<Call> calls = new ArrayList<>();
 
-    public Phone(DefaultCalculator calculator) {
+    public Phone(BascicPolicy calculator) {
         this.calculator = calculator;
     }
 

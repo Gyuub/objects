@@ -1,14 +1,15 @@
-package domain.calculator;
+package domain.policy.basic;
 
 import domain.Call;
 import domain.Money;
 
 import java.time.Duration;
 
-public class RegularCalculator extends DefaultCalculator {
+public class RegularPolicy extends BascicPolicy {
     private Money amount;
     private Duration secound;
-    public RegularCalculator(Money amount, Duration secound) {
+
+    public RegularPolicy(Money amount, Duration secound) {
         this.secound = secound;
         this.amount = amount;
     }

@@ -1,13 +1,13 @@
-package domain.calculator;
+package domain.policy.basic;
 
 import domain.Call;
 import domain.Money;
 import domain.Phone;
+import domain.policy.FeePolicy;
 
-import java.time.Duration;
+public abstract class BascicPolicy implements FeePolicy {
 
-public abstract class DefaultCalculator{
-
+    @Override
     public Money getCalculateFee(Phone phone){
         Money result = Money.ZERO;
         for (Call each : phone.getCalls()) {

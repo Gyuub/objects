@@ -1,18 +1,17 @@
-package domain.calculator;
+package domain.policy.basic;
 
 import domain.Call;
 import domain.Money;
-import domain.Phone;
 
 import java.time.Duration;
 
-public class NightlyCalculator extends DefaultCalculator {
+public class NightlyPolicy extends BascicPolicy {
     private final int LATE_NIGHT_HOUR = 22;
     private Money regularAmount;
     private Money nightlyAmount;
     private Duration second;
 
-    public NightlyCalculator(Money regularAmount, Money nightlyAmount, Duration second) {
+    public NightlyPolicy(Money regularAmount, Money nightlyAmount, Duration second) {
         this.regularAmount = regularAmount;
         this.nightlyAmount = nightlyAmount;
         this.second = second;

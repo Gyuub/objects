@@ -1,11 +1,13 @@
 import domain.Money;
 import domain.Call;
 import domain.Phone;
-import domain.calculator.NightlyCalculator;
-import domain.calculator.RegularCalculator;
+import domain.policy.basic.NightlyPolicy;
+import domain.policy.basic.RegularPolicy;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 전화 요금 계산기
@@ -24,9 +26,9 @@ import java.time.LocalDateTime;
 public class Main {
     public static void main(String[] args) {
 
-
-        RegularCalculator calculator1 = new RegularCalculator(Money.wons(10), Duration.ofSeconds(10));
-        NightlyCalculator calculator2 = new NightlyCalculator(Money.wons(10), Money.wons(5), Duration.ofSeconds(10));
+        Set set = new HashSet();
+        RegularPolicy calculator1 = new RegularPolicy(Money.wons(10), Duration.ofSeconds(10));
+        NightlyPolicy calculator2 = new NightlyPolicy(Money.wons(10), Money.wons(5), Duration.ofSeconds(10));
 
         Call call1 = new Call(
                 LocalDateTime.of(2022,1,20,13,0),
