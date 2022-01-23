@@ -3,14 +3,14 @@ package damain;
 import java.util.*;
 
 public class Lecture {
-    private int pass;
     private String title;
+    private int pass;
     private List<Integer> scores = new ArrayList<>();
 
-    public Lecture(int pass, String title, Integer ...score) {
+    public Lecture(String title, int pass, List<Integer> score) {
         this.pass = pass;
         this.title = title;
-        this.scores = Arrays.asList(score);
+        this.scores = score;
     }
 
     //average 학생 평균 성적 계산
@@ -30,6 +30,15 @@ public class Lecture {
     public List<Integer> getScores() {
         return Collections.unmodifiableList(scores);
     }
+
+    public String stats(){
+        return String.format("Title: $s, Evaluation Method: %s", title, getEvaluationMethod());
+    }
+
+    public String getEvaluationMethod(){
+        return "Pass or Fail";
+    }
+
 
     private long passCount() {
         return scores.stream().

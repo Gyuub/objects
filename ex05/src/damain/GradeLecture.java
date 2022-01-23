@@ -7,8 +7,8 @@ import java.util.stream.Collectors;
 public class GradeLecture extends Lecture {
     private List<Grade> grades = new ArrayList<>();
 
-    public GradeLecture(int pass, String title, List<Grade> grades, Integer... score) {
-        super(pass, title, score);
+    public GradeLecture(String title, int pass, List<Grade> grades, List<Integer> score) {
+        super(title, pass, score);
         this.grades = grades;
     }
 
@@ -17,6 +17,10 @@ public class GradeLecture extends Lecture {
         return super.evaluate() + ", " + gradeStatistics();
     }
 
+    @Override
+    public String getEvaluationMethod() {
+        return "Grade";
+    }
 
     public double average(String gradeName) {
         return grades.stream().
