@@ -1,5 +1,6 @@
 package good;
 
+import good.domain.Movie;
 import good.domain.*;
 import good.domain.condtion.PeriodCondtion;
 import good.domain.condtion.SequenceCondition;

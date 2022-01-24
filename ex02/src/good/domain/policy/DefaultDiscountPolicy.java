@@ -15,7 +15,7 @@ public abstract class DefaultDiscountPolicy implements DiscountPolicy{
         this.conditions = Arrays.asList(conditions);
     }
 
-    protected abstract Money getDiscountAmount(Screening screening);
+
 
     @Override
     public Money calculateDiscountAmount(Screening screening) {
@@ -26,6 +26,7 @@ public abstract class DefaultDiscountPolicy implements DiscountPolicy{
         }
         return Money.ZERO;
     }
+    protected abstract Money getDiscountAmount(Screening screening);
 
 
 }

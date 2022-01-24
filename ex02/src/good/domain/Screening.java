@@ -18,7 +18,7 @@ public class Screening {
     }
 
     public Money calculateFee(int audienceCount){
-        return movie.calculateMovieFee(this).times(audienceCount);
+        return movie.calculateDiscountedFee(this).times(audienceCount);
     }
 
     public boolean isSequence(int sequence){
