@@ -24,3 +24,6 @@ hs_err_pid*
 
 # Setting
 .idea/
+*.iml
+# Test example
+ex00
