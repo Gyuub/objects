@@ -1,7 +1,6 @@
 package domain.policy.addition;
 
 import domain.Money;
-import domain.policy.FeePolicy;
 
 public class AmountDiscountPolicy extends AdditionPolicy{
     private Money discountAmount;

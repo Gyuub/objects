@@ -5,7 +5,7 @@ import domain.Money;
 
 import java.time.Duration;
 
-public class FixedFeePolicy extends BascicPolicy {
+public class FixedFeePolicy extends BasicPolicy {
     private Money amount;
     private Duration secound;
 

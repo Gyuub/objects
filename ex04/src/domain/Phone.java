@@ -1,8 +1,6 @@
 package domain;
 
-import domain.policy.FeePolicy;
-import domain.policy.addition.TaxablePolicy;
-import domain.policy.basic.BascicPolicy;
+import domain.policy.addition.FeePolicy;
 
 import java.util.ArrayList;
 import java.util.Arrays;

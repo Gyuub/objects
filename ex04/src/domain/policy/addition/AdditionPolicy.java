@@ -1,9 +1,7 @@
 package domain.policy.addition;
 
-import domain.Call;
 import domain.Money;
 import domain.Phone;
-import domain.policy.FeePolicy;
 
 public abstract class AdditionPolicy implements FeePolicy {
 
