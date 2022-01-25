@@ -5,11 +5,11 @@ import domain.Money;
 
 import java.time.Duration;
 
-public class RegularPolicy extends BascicPolicy {
+public class FixedFeePolicy extends BascicPolicy {
     private Money amount;
     private Duration secound;
 
-    public RegularPolicy(Money amount, Duration secound) {
+    public FixedFeePolicy(Money amount, Duration secound) {
         this.secound = secound;
         this.amount = amount;
     }

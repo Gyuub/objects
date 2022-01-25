@@ -1,22 +1,26 @@
 package domain;
 
+import domain.policy.basic.DateTimeInterval;
+
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class Call {
-    private LocalDateTime from;
-    private LocalDateTime to;
+    private DateTimeInterval dateTimeInterval;
 
-    public Call(LocalDateTime statTime, LocalDateTime endTime) {
-        this.from = statTime;
-        this.to = endTime;
+    public Call(DateTimeInterval dateTimeInterval) {
+        this.dateTimeInterval = dateTimeInterval;
     }
 
-    public Duration getDuration(){
-        return Duration.between(from, to);
+    public List<DateTimeInterval> splitByDay(){
+        return dateTimeInterval.splitByDay();
+    }
+    public Duration getDuration() {
+        return dateTimeInterval.getDuration();
     }
 
     public LocalDateTime getFrom() {
-        return from;
+        return dateTimeInterval.getFrom();
     }
 }

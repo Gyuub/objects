@@ -3,13 +3,12 @@ import domain.Call;
 import domain.Phone;
 import domain.policy.addition.AmountDiscountPolicy;
 import domain.policy.addition.TaxablePolicy;
-import domain.policy.basic.NightlyPolicy;
-import domain.policy.basic.RegularPolicy;
+import domain.policy.basic.DateTimeInterval;
+import domain.policy.basic.TimeOfDayDiscountPolicy;
+import domain.policy.basic.FixedFeePolicy;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * 전화 요금 계산기
@@ -36,83 +35,79 @@ public class Main {
 
 
     public static void 기본_정책_요금계산() {
-        RegularPolicy regularPolicy = new RegularPolicy(Money.wons(10), Duration.ofSeconds(10));
+        FixedFeePolicy regularPolicy = new FixedFeePolicy(Money.wons(10), Duration.ofSeconds(10));
+        DateTimeInterval call1 = new DateTimeInterval(
+                LocalDateTime.of(2022, 1, 20, 13, 0),
+                LocalDateTime.of(2022, 1, 20, 13, 5));
+        DateTimeInterval call2 = new DateTimeInterval(
+                LocalDateTime.of(2022, 1, 20, 22, 0),
+                LocalDateTime.of(2022, 1, 20, 22, 10));
 
-        Phone phone = new Phone(regularPolicy,
-                new Call(
-                        LocalDateTime.of(2022, 1, 20, 13, 0),
-                        LocalDateTime.of(2022, 1, 20, 13, 5)
-                ),
-                new Call(
-                        LocalDateTime.of(2022, 1, 20, 22, 0),
-                        LocalDateTime.of(2022, 1, 20, 22, 10)
-                ));
+        Phone phone = new Phone(regularPolicy, new Call(call1), new Call(call2));
 
         System.out.println("기본_정책_요금계산 = " + phone.getPhoneFee().amount);
     }
 
     public static void 심야_정책_요금계산() {
-        NightlyPolicy nightlyPolicy = new NightlyPolicy(Money.wons(10), Money.wons(5), Duration.ofSeconds(10));
+        /*TimeOfDayDiscountPolicy nightlyPolicy = new TimeOfDayDiscountPolicy(Money.wons(10), Money.wons(5), Duration.ofSeconds(10));
 
-        Phone phone = new Phone(nightlyPolicy,
-                new Call(
-                        LocalDateTime.of(2022, 1, 20, 13, 0),
-                        LocalDateTime.of(2022, 1, 20, 13, 5)
-                ),
-                new Call(
-                        LocalDateTime.of(2022, 1, 20, 22, 0),
-                        LocalDateTime.of(2022, 1, 20, 22, 10)
-                ));
+        DateTimeInterval call1 = new DateTimeInterval(
+                LocalDateTime.of(2022, 1, 20, 13, 0),
+                LocalDateTime.of(2022, 1, 20, 13, 5));
+        DateTimeInterval call2 = new DateTimeInterval(
+                LocalDateTime.of(2022, 1, 20, 22, 0),
+                LocalDateTime.of(2022, 1, 20, 22, 10));
 
-        System.out.println("심야_정책_요금계산 = " + phone.getPhoneFee().amount);
+        Phone phone = new Phone(nightlyPolicy, new Call(call1), new Call(call2));
+
+        System.out.println("심야_정책_요금계산 = " + phone.getPhoneFee().amount);*/
     }
 
     public static void 기본_정책_세금부가_요금계산() {
-        RegularPolicy regularPolicy = new RegularPolicy(Money.wons(10), Duration.ofSeconds(10));
+        FixedFeePolicy regularPolicy = new FixedFeePolicy(Money.wons(10), Duration.ofSeconds(10));
         TaxablePolicy taxablePolicy = new TaxablePolicy(regularPolicy, 0.2);
 
-        Phone phone = new Phone(taxablePolicy,
-                new Call(
-                        LocalDateTime.of(2022, 1, 20, 13, 0),
-                        LocalDateTime.of(2022, 1, 20, 13, 5)
-                ),
-                new Call(
-                        LocalDateTime.of(2022, 1, 20, 22, 0),
-                        LocalDateTime.of(2022, 1, 20, 22, 10)
-                ));
+        DateTimeInterval call1 = new DateTimeInterval(
+                LocalDateTime.of(2022, 1, 20, 13, 0),
+                LocalDateTime.of(2022, 1, 20, 13, 5));
+        DateTimeInterval call2 = new DateTimeInterval(
+                LocalDateTime.of(2022, 1, 20, 22, 0),
+                LocalDateTime.of(2022, 1, 20, 22, 10));
+
+        Phone phone = new Phone(taxablePolicy, new Call(call1), new Call(call2));
 
         System.out.println("기본_정책_세금부가_요금계산 = " + phone.getPhoneFee().amount);
     }
+
     public static void 심야_정책_세금부가_요금계산() {
-        NightlyPolicy nightlyPolicy = new NightlyPolicy(Money.wons(10), Money.wons(5), Duration.ofSeconds(10));
+        /*TimeOfDayDiscountPolicy nightlyPolicy = new TimeOfDayDiscountPolicy(Money.wons(10), Money.wons(5), Duration.ofSeconds(10));
         TaxablePolicy taxablePolicy = new TaxablePolicy(nightlyPolicy, 0.2);
 
-        Phone phone = new Phone(taxablePolicy,
-                new Call(
-                        LocalDateTime.of(2022, 1, 20, 13, 0),
-                        LocalDateTime.of(2022, 1, 20, 13, 5)
-                ),
-                new Call(
-                        LocalDateTime.of(2022, 1, 20, 22, 0),
-                        LocalDateTime.of(2022, 1, 20, 22, 10)
-                ));
+        DateTimeInterval call1 = new DateTimeInterval(
+                LocalDateTime.of(2022, 1, 20, 13, 0),
+                LocalDateTime.of(2022, 1, 20, 13, 5));
+        DateTimeInterval call2 = new DateTimeInterval(
+                LocalDateTime.of(2022, 1, 20, 22, 0),
+                LocalDateTime.of(2022, 1, 20, 22, 10));
 
-        System.out.println("심야_정책_세금부가_요금계산 = " + phone.getPhoneFee().amount);
+        Phone phone = new Phone(taxablePolicy, new Call(call1), new Call(call2));
+
+        System.out.println("심야_정책_세금부가_요금계산 = " + phone.getPhoneFee().amount);*/
     }
+
     public static void 기본_정책_세금부가_금액할인_요금계산() {
-        RegularPolicy regularPolicy = new RegularPolicy(Money.wons(10), Duration.ofSeconds(10));
+        FixedFeePolicy regularPolicy = new FixedFeePolicy(Money.wons(10), Duration.ofSeconds(10));
         TaxablePolicy taxablePolicy = new TaxablePolicy(regularPolicy, 0.2);
         AmountDiscountPolicy amountDiscountPolicy = new AmountDiscountPolicy(taxablePolicy, Money.wons(500));
 
-        Phone phone = new Phone(amountDiscountPolicy,
-                new Call(
-                        LocalDateTime.of(2022, 1, 20, 13, 0),
-                        LocalDateTime.of(2022, 1, 20, 13, 5)
-                ),
-                new Call(
-                        LocalDateTime.of(2022, 1, 20, 22, 0),
-                        LocalDateTime.of(2022, 1, 20, 22, 10)
-                ));
+        DateTimeInterval call1 = new DateTimeInterval(
+                LocalDateTime.of(2022, 1, 20, 13, 0),
+                LocalDateTime.of(2022, 1, 20, 13, 5));
+        DateTimeInterval call2 = new DateTimeInterval(
+                LocalDateTime.of(2022, 1, 20, 22, 0),
+                LocalDateTime.of(2022, 1, 20, 22, 10));
+
+        Phone phone = new Phone(amountDiscountPolicy, new Call(call1), new Call(call2));
 
         System.out.println("기본_정책_세금부가_금액할인_요금계산 = " + phone.getPhoneFee().amount);
     }
