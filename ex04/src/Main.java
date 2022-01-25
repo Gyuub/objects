@@ -3,8 +3,7 @@ import domain.Call;
 import domain.Phone;
 import domain.policy.addition.AmountDiscountPolicy;
 import domain.policy.addition.TaxablePolicy;
-import domain.policy.basic.DateTimeInterval;
-import domain.policy.basic.TimeOfDayDiscountPolicy;
+import domain.DateTimeInterval;
 import domain.policy.basic.FixedFeePolicy;
 
 import java.time.Duration;

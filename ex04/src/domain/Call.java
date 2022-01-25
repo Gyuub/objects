@@ -1,7 +1,5 @@
 package domain;
 
-import domain.policy.basic.DateTimeInterval;
-
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -22,5 +20,8 @@ public class Call {
 
     public LocalDateTime getFrom() {
         return dateTimeInterval.getFrom();
+    }
+    public LocalDateTime getTo() {
+        return dateTimeInterval.getTo();
     }
 }
