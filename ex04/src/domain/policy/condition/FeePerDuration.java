@@ -1,11 +1,9 @@
-package domain.policy.good;
+package domain.policy.condition;
 
-import domain.Call;
 import domain.DateTimeInterval;
 import domain.Money;
 
 import java.time.Duration;
-import java.util.List;
 
 public class FeePerDuration {
     private Money fee;

@@ -1,17 +1,14 @@
-package domain.policy.basic;
+package domain.policy.condition;
 
 import domain.Call;
 import domain.DateTimeInterval;
-import domain.Money;
-import domain.policy.good.FeeCondition;
 
 import java.time.DayOfWeek;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-//월요일 ~ 금요일 10초당 38원
-//토요일 ~ 일요일 19초당 19원
+
 public class DayOfWeekDiscountCondition implements FeeCondition {
     private List<DayOfWeek> dayOfWeeks = new ArrayList<>();
 

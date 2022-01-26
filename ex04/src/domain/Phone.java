@@ -1,6 +1,6 @@
 package domain;
 
-import domain.policy.addition.FeePolicy;
+import domain.policy.FeePolicy;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package domain.policy.good;
+package domain.policy.condition;
 
 import domain.Call;
 import domain.Money;

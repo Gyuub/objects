@@ -1,10 +1,10 @@
-package domain.policy.basic;
+package domain.policy;
 
 import domain.Call;
 import domain.Money;
 import domain.Phone;
-import domain.policy.addition.FeePolicy;
-import domain.policy.good.FeeRule;
+import domain.policy.FeePolicy;
+import domain.policy.condition.FeeRule;
 
 import java.util.ArrayList;
 import java.util.List;

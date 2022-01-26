@@ -1,9 +1,7 @@
-package domain.policy.basic;
+package domain.policy.condition;
 
 import domain.Call;
 import domain.DateTimeInterval;
-import domain.Money;
-import domain.policy.good.FeeCondition;
 
 import java.time.Duration;
 import java.util.*;

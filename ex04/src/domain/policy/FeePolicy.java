@@ -1,4 +1,4 @@
-package domain.policy.addition;
+package domain.policy;
 
 import domain.Money;
 import domain.Phone;
